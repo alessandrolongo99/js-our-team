@@ -53,10 +53,10 @@ const row = document.querySelector('div.row');
 // }
 
 for (let i = 0; i < team.length; i++) {
-    row.append(addCard(team, i));
+    row.append(addCard(team[i]));
 }
 
-function addCard(element, i){
+function addCard(element){
     const col = document.createElement('div');
     col.classList.add('col');
 
@@ -65,18 +65,18 @@ function addCard(element, i){
 
     const img = document.createElement('img');
     img.classList.add('card-img-top');
-    img.src = `./img/${team[i].pic}`;
+    img.src = `./img/${element.pic}`;
 
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
 
     const cardName = document.createElement('h5');
     cardName.classList.add('card-title');
-    cardName.innerHTML = `${team[i].name}`;
+    cardName.innerHTML = `${element.name}`;
 
     const cardRole = document.createElement('p');
     cardRole.classList.add('card-text');
-    cardRole.innerHTML = `${team[i].role}`;
+    cardRole.innerHTML = `${element.role}`;
 
     cardBody.append(cardName, cardRole);
     card.append(img, cardBody);
