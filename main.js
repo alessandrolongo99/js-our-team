@@ -8,46 +8,74 @@
 const team = [
     {
         name: 'Wayne Barnett',
-        rule: 'Founder & CEO',
+        role: 'Founder & CEO',
         pic: 'wayne-barnett-founder-ceo.jpg'
     },
     {
         name: 'Angela Caroll',
-        rule: 'Chief Editor',
+        role: 'Chief Editor',
         pic: 'angela-caroll-chief-editor.jpg'
     },
     {
         name: 'Walter Gordon',
-        rule: 'Office Manager',
+        role: 'Office Manager',
         pic: 'walter-gordon-office-manager.jpg'
     },
     {
         name: 'Angela Lopez',
-        rule: 'Social Media Manager',
+        role: 'Social Media Manager',
         pic: 'angela-lopez-social-media-manager.jpg'
     },
     {
         name: 'Scott Estrada',
-        rule: 'Developer',
+        role: 'Developer',
         pic: 'scott-estrada-developer.jpg'
     },
     {
         name: 'Barbara Ramos',
-        rule: 'Graphic Designer',
+        role: 'Graphic Designer',
         pic: 'barbara-ramos-graphic-designer.jpg'
     }
 ];
 
 for (let i = 0; i < team.length; i++) {
-    console.log(`membro ${i + 1}: ${team[i].name}, ${team[i].rule}, ${team[i].pic}`);
+    console.log(`membro ${i + 1}: ${team[i].name}, ${team[i].role}, ${team[i].pic}`);
 }
 
 const row = document.querySelector('div.row');
 
-for (let i = 0; i < team.length; i++) {
-    const element = document.createElement('div');
-    element.classList.add('col-12');
-    element.innerHTML = `membro ${i + 1}: ${team[i].name}, ${team[i].rule}, ${team[i].pic}`;
+// for (let i = 0; i < team.length; i++) {
+//     const element = document.createElement('div');
+//     element.classList.add('col-12');
+//     element.innerHTML = `membro ${i + 1}: ${team[i].name}, ${team[i].role}, ${team[i].pic}`;
 
-    row.append(element);
+//     row.append(element);
+// }
+
+for (let i = 0; i < team.length; i++) {
+    const col = document.createElement('div');
+    col.classList.add('col');
+
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const img = document.createElement('img');
+    img.classList.add('card-img-top');
+    img.src = `./img/${team[i].pic}`;
+
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+
+    const cardName = document.createElement('h5');
+    cardName.classList.add('card-title');
+    cardName.innerHTML = `${team[i].name}`;
+
+    const cardRole = document.createElement('p');
+    cardRole.classList.add('card-text');
+    cardRole.innerHTML = `${team[i].role}`;
+
+    cardBody.append(cardName, cardRole);
+    card.append(img, cardBody);
+    col.append(card);
+    row.append(col);
 }
