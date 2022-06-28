@@ -53,6 +53,10 @@ const row = document.querySelector('div.row');
 // }
 
 for (let i = 0; i < team.length; i++) {
+    row.append(addCard(team, i));
+}
+
+function addCard(element, i){
     const col = document.createElement('div');
     col.classList.add('col');
 
@@ -77,5 +81,6 @@ for (let i = 0; i < team.length; i++) {
     cardBody.append(cardName, cardRole);
     card.append(img, cardBody);
     col.append(card);
-    row.append(col);
+
+    return col;
 }
