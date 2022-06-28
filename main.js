@@ -41,3 +41,13 @@ const team = [
 for (let i = 0; i < team.length; i++) {
     console.log(`membro ${i + 1}: ${team[i].name}, ${team[i].rule}, ${team[i].pic}`);
 }
+
+const row = document.querySelector('div.row');
+
+for (let i = 0; i < team.length; i++) {
+    const element = document.createElement('div');
+    element.classList.add('col-12');
+    element.innerHTML = `membro ${i + 1}: ${team[i].name}, ${team[i].rule}, ${team[i].pic}`;
+
+    row.append(element);
+}
